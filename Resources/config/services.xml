@@ -197,6 +197,11 @@
             </argument>
         </service>
 
+        <service id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.rsa.factory_proxy"
+            class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Algorithm\ZendCrypt\RsaFactoryProxy"
+            public="false">
+        </service>
+
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.decrypter.zend_crypt.mcrypt.3des"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Decrypter\ZendCryptBlockCipherDecrypter"
             public="false">
