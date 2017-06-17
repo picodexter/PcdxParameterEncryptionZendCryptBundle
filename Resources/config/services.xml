@@ -298,6 +298,12 @@
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.openssl.des" />
         </service>
 
+        <service id="pcdx_parameter_encryption_zend_crypt.encryption.decrypter.zend_crypt.openssl.rsa"
+            class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Decrypter\ZendCryptRsaDecrypter"
+            public="false">
+            <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.rsa.factory_proxy" />
+        </service>
+
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.decrypter.zend_crypt.openssl.seed"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Decrypter\ZendCryptBlockCipherDecrypter"
             public="false">
