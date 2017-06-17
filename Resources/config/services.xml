@@ -97,5 +97,16 @@
                 <argument key="algo">rijndael-256</argument>
             </argument>
         </service>
+
+        <service id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.saferplus"
+            class="Zend\Crypt\BlockCipher"
+            public="false">
+            <factory service="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.factory_proxy"
+                method="factory" />
+            <argument>mcrypt</argument>
+            <argument type="collection">
+                <argument key="algo">saferplus</argument>
+            </argument>
+        </service>
     </services>
 </container>
