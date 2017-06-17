@@ -394,5 +394,11 @@
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.openssl.des" />
         </service>
+
+        <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.seed"
+            class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
+            public="false">
+            <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.openssl.seed" />
+        </service>
     </services>
 </container>
