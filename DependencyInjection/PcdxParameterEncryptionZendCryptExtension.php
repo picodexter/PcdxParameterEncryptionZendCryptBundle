@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the PcdxParameterEncryptionDefuseBundle package.
+ * This file is part of the PcdxParameterEncryptionZendCryptBundle package.
  *
  * (c) picodexter <https://picodexter.io/>
  *
