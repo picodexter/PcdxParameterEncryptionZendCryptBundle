@@ -214,5 +214,11 @@
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.blowfish" />
         </service>
+
+        <service id="pcdx_parameter_encryption_zend_crypt.encryption.decrypter.zend_crypt.mcrypt.cast.128"
+            class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Decrypter\ZendCryptBlockCipherDecrypter"
+            public="false">
+            <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.cast.128" />
+        </service>
     </services>
 </container>
