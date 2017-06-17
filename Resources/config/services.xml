@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.factory_proxy"
+            class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Algorithm\ZendCrypt\BlockCipherFactoryProxy"
+            public="false">
+        </service>
+    </services>
+</container>
