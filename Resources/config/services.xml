@@ -9,5 +9,16 @@
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Algorithm\ZendCrypt\BlockCipherFactoryProxy"
             public="false">
         </service>
+
+        <service id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.3des"
+            class="Zend\Crypt\BlockCipher"
+            public="false">
+            <factory service="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.factory_proxy"
+                method="factory" />
+            <argument>mcrypt</argument>
+            <argument type="collection">
+                <argument key="algo">3des</argument>
+            </argument>
+        </service>
     </services>
 </container>
