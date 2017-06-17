@@ -220,5 +220,11 @@
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.cast.128" />
         </service>
+
+        <service id="pcdx_parameter_encryption_zend_crypt.encryption.decrypter.zend_crypt.mcrypt.cast.256"
+            class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Decrypter\ZendCryptBlockCipherDecrypter"
+            public="false">
+            <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.cast.256" />
+        </service>
     </services>
 </container>
