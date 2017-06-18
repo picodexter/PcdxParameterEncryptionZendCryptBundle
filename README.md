@@ -19,19 +19,19 @@ You will be able to use the following ciphers:
 
     *   AES-256
     *   Blowfish
-    *   DES
     *   Camellia-256
     *   CAST-128 / CAST5
+    *   DES
     *   SEED
 
 *   Provided by mcrypt extension:
 
     *   AES / Rijndael-128
     *   Blowfish
-    *   DES
-    *   3DES / Triple DES
     *   CAST-128 / CAST5
     *   CAST-256
+    *   DES
+    *   3DES / Triple DES
     *   Rijndael-192
     *   Rijndael-256
     *   SAFER+
