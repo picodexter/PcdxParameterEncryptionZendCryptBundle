@@ -11,7 +11,15 @@ and enables simple usage of it in combination with the Composer package
 
 ## Features
 
-You will be able to use the following ciphers:
+zend-crypt 2.x supports the mcrypt extension only.
+
+zend-crypt 3.x supports both the OpenSSL and the mcrypt extension.
+
+The **mcrypt extension has been deprecated as of PHP 7.1** and was moved to
+PECL as of PHP 7.2.
+
+Depending on the factors mentioned above, you will be able to use the following
+ciphers:
 
 ### Symmetric Ciphers
 
