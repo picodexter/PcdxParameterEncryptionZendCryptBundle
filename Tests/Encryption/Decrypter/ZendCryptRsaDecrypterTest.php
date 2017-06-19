@@ -12,6 +12,7 @@
 namespace Picodexter\ParameterEncryptionZendCryptBundle\Tests\Encryption\Decrypter;
 
 use Exception;
+use Picodexter\ParameterEncryptionBundle\Exception\Encryption\DecrypterException;
 use Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Algorithm\ZendCrypt\RsaFactoryProxyInterface;
 use Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Decrypter\ZendCryptRsaDecrypter;
 use Zend\Crypt\PublicKey\Rsa;
@@ -47,11 +48,10 @@ class ZendCryptRsaDecrypterTest extends \PHPUnit_Framework_TestCase
         $this->cipherFactory = null;
     }
 
-    /**
-     * @expectedException \Picodexter\ParameterEncryptionBundle\Exception\Encryption\DecrypterException
-     */
     public function testDecryptValueException()
     {
+        $this->expectException(DecrypterException::class);
+
         $encryptedValue = 'some encrypted value';
         $decryptionKey = 'some key';
 
