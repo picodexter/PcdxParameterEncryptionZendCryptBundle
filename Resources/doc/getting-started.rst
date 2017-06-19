@@ -114,7 +114,7 @@ You can now use the following services in the PcdxParameterEncryptionBundle conf
 
 Example:
 
-1. Application configuration:
+1.  Application configuration:
 
     .. configuration-block::
 
@@ -223,7 +223,7 @@ Example:
                 ]
             );
 
-2. Parameters:
+2.  Parameters:
 
     .. configuration-block::
 
