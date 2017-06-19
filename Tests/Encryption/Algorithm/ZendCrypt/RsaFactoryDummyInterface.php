@@ -20,12 +20,14 @@ use Zend\Crypt\PublicKey\Rsa;
 interface RsaFactoryDummyInterface
 {
     /**
-     * RSA instance factory
+     * RSA instance factory.
      *
      * @param  array|Traversable $options
-     * @return Rsa
+     *
      * @throws Rsa\Exception\RuntimeException
      * @throws Rsa\Exception\InvalidArgumentException
+     *
+     * @return Rsa
      */
     public static function factory($options);
 }

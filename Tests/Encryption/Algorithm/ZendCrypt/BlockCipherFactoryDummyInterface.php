@@ -19,10 +19,11 @@ use Zend\Crypt\BlockCipher;
 interface BlockCipherFactoryDummyInterface
 {
     /**
-     * Factory
+     * Factory.
      *
      * @param  string      $adapter
      * @param  array       $options
+     *
      * @return BlockCipher
      */
     public static function factory($adapter, $options = []);
