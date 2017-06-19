@@ -53,20 +53,21 @@ class ZendCryptRsaEncrypterTest extends \PHPUnit_Framework_TestCase
     public function testEncryptValueException()
     {
         $plainValue = 'some plain value';
+        $encryptionKey = 'some key';
 
         $cipher = $this->createRsaMock();
 
-        $this->setUpCipherFactoryFactory(null, $cipher);
+        $this->setUpCipherFactoryFactory($encryptionKey, $cipher);
 
         $cipher->expects($this->once())
             ->method('encrypt')
             ->with($this->identicalTo($plainValue))
             ->will($this->throwException(new Exception()));
 
-        $this->encrypter->encryptValue($plainValue);
+        $this->encrypter->encryptValue($plainValue, $encryptionKey);
     }
 
-    public function testEncryptValueSuccessWithKey()
+    public function testEncryptValueSuccess()
     {
         $plainValue = 'some plain value';
         $encryptionKey = 'some key';
@@ -76,25 +77,12 @@ class ZendCryptRsaEncrypterTest extends \PHPUnit_Framework_TestCase
 
         $this->setUpCipherFactoryFactory($encryptionKey, $cipher);
 
-        $this->setUpCipherEncrypt($cipher, $plainValue, $prepEncryptedValue);
+        $cipher->expects($this->once())
+            ->method('encrypt')
+            ->with($this->identicalTo($plainValue))
+            ->will($this->returnValue($prepEncryptedValue));
 
         $encryptedValue = $this->encrypter->encryptValue($plainValue, $encryptionKey);
-
-        $this->assertSame($prepEncryptedValue, $encryptedValue);
-    }
-
-    public function testEncryptValueSuccessWithoutKey()
-    {
-        $plainValue = 'some plain value';
-        $prepEncryptedValue = 'decrypted value';
-
-        $cipher = $this->createRsaMock();
-
-        $this->setUpCipherFactoryFactory(null, $cipher);
-
-        $this->setUpCipherEncrypt($cipher, $plainValue, $prepEncryptedValue);
-
-        $encryptedValue = $this->encrypter->encryptValue($plainValue);
 
         $this->assertSame($prepEncryptedValue, $encryptedValue);
     }
@@ -120,25 +108,10 @@ class ZendCryptRsaEncrypterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Set up cipher: encrypt.
-     *
-     * @param Rsa|\PHPUnit_Framework_MockObject_MockObject $cipher
-     * @param string                                       $plainValue
-     * @param string                                       $encryptedValue
-     */
-    private function setUpCipherEncrypt(Rsa $cipher, $plainValue, $encryptedValue)
-    {
-        $cipher->expects($this->once())
-            ->method('encrypt')
-            ->with($this->identicalTo($plainValue))
-            ->will($this->returnValue($encryptedValue));
-    }
-
-    /**
      * Set up cipher factory: factory.
      *
-     * @param string|null $encryptionKey
-     * @param Rsa         $cipher
+     * @param string $encryptionKey
+     * @param Rsa    $cipher
      */
     private function setUpCipherFactoryFactory($encryptionKey, Rsa $cipher)
     {
