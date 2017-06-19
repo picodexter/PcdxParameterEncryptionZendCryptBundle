@@ -54,11 +54,12 @@ in the ``app/AppKernel.php`` file of your project:
 Step 3: Configuration
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can now use the following services in the PcdxParameterEncryptionBundle configuration:
+You can now use the following services in the ``PcdxParameterEncryptionBundle``
+configuration:
 
-*   encrypter:
+*   Encrypter:
 
-    *   symmetric ciphers:
+    *   Symmetric ciphers:
 
         *   ``pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.3des``
             also known as Triple DES
@@ -80,13 +81,13 @@ You can now use the following services in the PcdxParameterEncryptionBundle conf
         *   ``pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.des``
         *   ``pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.seed``
 
-    *   asymmetric ciphers:
+    *   Asymmetric ciphers:
 
         *   ``pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.rsa``
 
-*   decrypter:
+*   Decrypter:
 
-    *   symmetric ciphers:
+    *   Symmetric ciphers:
 
         *   ``pcdx_parameter_encryption_zend_crypt.encryption.decrypter.zend_crypt.mcrypt.3des``
             also known as Triple DES
@@ -108,7 +109,7 @@ You can now use the following services in the PcdxParameterEncryptionBundle conf
         *   ``pcdx_parameter_encryption_zend_crypt.encryption.decrypter.zend_crypt.openssl.des``
         *   ``pcdx_parameter_encryption_zend_crypt.encryption.decrypter.zend_crypt.openssl.seed``
 
-    *   asymmetric ciphers:
+    *   Asymmetric ciphers:
 
         *   ``pcdx_parameter_encryption_zend_crypt.encryption.decrypter.zend_crypt.openssl.rsa``
 
