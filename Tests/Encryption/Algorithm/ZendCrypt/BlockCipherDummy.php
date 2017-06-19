@@ -21,7 +21,6 @@ class BlockCipherDummy extends BlockCipher
     /**
      * Constructor.
      */
-    /** @noinspection PhpMissingParentConstructorInspection */
     public function __construct()
     {
     }
