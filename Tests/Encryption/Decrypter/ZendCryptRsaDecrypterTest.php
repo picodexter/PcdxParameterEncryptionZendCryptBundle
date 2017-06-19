@@ -53,20 +53,21 @@ class ZendCryptRsaDecrypterTest extends \PHPUnit_Framework_TestCase
     public function testDecryptValueException()
     {
         $encryptedValue = 'some encrypted value';
+        $decryptionKey = 'some key';
 
         $cipher = $this->createRsaMock();
 
-        $this->setUpCipherFactoryFactory(null, $cipher);
+        $this->setUpCipherFactoryFactory($decryptionKey, $cipher);
 
         $cipher->expects($this->once())
             ->method('decrypt')
             ->with($this->identicalTo($encryptedValue))
             ->will($this->throwException(new Exception()));
 
-        $this->decrypter->decryptValue($encryptedValue);
+        $this->decrypter->decryptValue($encryptedValue, $decryptionKey);
     }
 
-    public function testDecryptValueSuccessWithKey()
+    public function testDecryptValueSuccess()
     {
         $encryptedValue = 'some encrypted value';
         $decryptionKey = 'some key';
@@ -76,25 +77,12 @@ class ZendCryptRsaDecrypterTest extends \PHPUnit_Framework_TestCase
 
         $this->setUpCipherFactoryFactory($decryptionKey, $cipher);
 
-        $this->setUpCipherDecrypt($cipher, $encryptedValue, $prepDecryptedValue);
+        $cipher->expects($this->once())
+            ->method('decrypt')
+            ->with($this->identicalTo($encryptedValue))
+            ->will($this->returnValue($prepDecryptedValue));
 
         $decryptedValue = $this->decrypter->decryptValue($encryptedValue, $decryptionKey);
-
-        $this->assertSame($prepDecryptedValue, $decryptedValue);
-    }
-
-    public function testDecryptValueSuccessWithoutKey()
-    {
-        $encryptedValue = 'some encrypted value';
-        $prepDecryptedValue = 'decrypted value';
-
-        $cipher = $this->createRsaMock();
-
-        $this->setUpCipherFactoryFactory(null, $cipher);
-
-        $this->setUpCipherDecrypt($cipher, $encryptedValue, $prepDecryptedValue);
-
-        $decryptedValue = $this->decrypter->decryptValue($encryptedValue);
 
         $this->assertSame($prepDecryptedValue, $decryptedValue);
     }
@@ -120,25 +108,10 @@ class ZendCryptRsaDecrypterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Set up cipher: decrypt.
-     *
-     * @param Rsa|\PHPUnit_Framework_MockObject_MockObject $cipher
-     * @param string                                       $encryptedValue
-     * @param string                                       $decryptedValue
-     */
-    private function setUpCipherDecrypt(Rsa $cipher, $encryptedValue, $decryptedValue)
-    {
-        $cipher->expects($this->once())
-            ->method('decrypt')
-            ->with($this->identicalTo($encryptedValue))
-            ->will($this->returnValue($decryptedValue));
-    }
-
-    /**
      * Set up cipher factory: factory.
      *
-     * @param string|null $decryptionKey
-     * @param Rsa         $cipher
+     * @param string $decryptionKey
+     * @param Rsa    $cipher
      */
     private function setUpCipherFactoryFactory($decryptionKey, $cipher)
     {

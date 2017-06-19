@@ -39,7 +39,7 @@ class ZendCryptRsaDecrypter implements DecrypterInterface
     /**
      * @inheritDoc
      */
-    public function decryptValue($encryptedValue, $decryptionKey = null)
+    public function decryptValue($encryptedValue, $decryptionKey)
     {
         try {
             $cipher = $this->cipherFactory->factory([
