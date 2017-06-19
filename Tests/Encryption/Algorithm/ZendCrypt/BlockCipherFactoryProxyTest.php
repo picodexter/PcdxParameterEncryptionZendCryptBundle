@@ -42,7 +42,7 @@ class BlockCipherFactoryProxyTest extends \PHPUnit_Framework_TestCase
         $adapter = 'some_adapter';
         $options = [
             'these' => 'are',
-            'some'  => 'some_options'
+            'some'  => 'some_options',
         ];
 
         $cipher = $this->proxy->factory($adapter, $options);
