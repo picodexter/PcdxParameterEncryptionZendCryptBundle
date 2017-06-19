@@ -52,42 +52,34 @@ class ZendCryptBlockCipherEncrypterTest extends \PHPUnit_Framework_TestCase
     public function testEncryptValueException()
     {
         $plainValue = 'some plain value';
+        $encryptionKey = 'some key';
 
         $this->cipher->expects($this->once())
             ->method('encrypt')
             ->with($this->identicalTo($plainValue))
             ->will($this->throwException(new Exception()));
 
-        $this->encrypter->encryptValue($plainValue);
+        $this->encrypter->encryptValue($plainValue, $encryptionKey);
     }
 
-    public function testEncryptValueSuccessWithKey()
+    public function testEncryptValueSuccess()
     {
         $plainValue = 'some plain value';
         $encryptionKey = 'some key';
-        $prepDecryptedValue = 'decrypted value';
+        $prepEncryptedValue = 'decrypted value';
 
-        $this->setUpBlockCipherSetKey($encryptionKey);
+        $this->cipher->expects($this->once())
+            ->method('setKey')
+            ->with($this->identicalTo($encryptionKey));
 
-        $this->setUpBlockCipherEncrypt($plainValue, $prepDecryptedValue);
+        $this->cipher->expects($this->once())
+            ->method('encrypt')
+            ->with($this->identicalTo($plainValue))
+            ->will($this->returnValue($prepEncryptedValue));
 
         $decryptedValue = $this->encrypter->encryptValue($plainValue, $encryptionKey);
 
-        $this->assertSame($prepDecryptedValue, $decryptedValue);
-    }
-
-    public function testEncryptValueSuccessWithoutKey()
-    {
-        $plainValue = 'some plain value';
-        $prepDecryptedValue = 'decrypted value';
-
-        $this->setUpBlockCipherSetKey(null);
-
-        $this->setUpBlockCipherEncrypt($plainValue, $prepDecryptedValue);
-
-        $decryptedValue = $this->encrypter->encryptValue($plainValue);
-
-        $this->assertSame($prepDecryptedValue, $decryptedValue);
+        $this->assertSame($prepEncryptedValue, $decryptedValue);
     }
 
     /**
@@ -98,31 +90,5 @@ class ZendCryptBlockCipherEncrypterTest extends \PHPUnit_Framework_TestCase
     private function createBlockCipherMock()
     {
         return $this->getMockBuilder(BlockCipher::class)->disableOriginalConstructor()->getMock();
-    }
-
-    /**
-     * Set up BlockCipher: encrypt.
-     *
-     * @param string $encryptedValue
-     * @param string $decryptedValue
-     */
-    private function setUpBlockCipherEncrypt($encryptedValue, $decryptedValue)
-    {
-        $this->cipher->expects($this->once())
-            ->method('encrypt')
-            ->with($this->identicalTo($encryptedValue))
-            ->will($this->returnValue($decryptedValue));
-    }
-
-    /**
-     * Set up BlockCipher: setKey.
-     *
-     * @param string|null $encryptionKey
-     */
-    private function setUpBlockCipherSetKey($encryptionKey)
-    {
-        $this->cipher->expects($this->once())
-            ->method('setKey')
-            ->with($encryptionKey);
     }
 }
