@@ -39,7 +39,7 @@ class ZendCryptBlockCipherDecrypter implements DecrypterInterface
     /**
      * @inheritDoc
      */
-    public function decryptValue($encryptedValue, $decryptionKey = null)
+    public function decryptValue($encryptedValue, $decryptionKey)
     {
         try {
             $this->cipher->setKey($decryptionKey);

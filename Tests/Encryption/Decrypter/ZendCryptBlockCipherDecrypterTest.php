@@ -52,40 +52,32 @@ class ZendCryptBlockCipherDecrypterTest extends \PHPUnit_Framework_TestCase
     public function testDecryptValueException()
     {
         $encryptedValue = 'some encrypted value';
+        $decryptionKey = 'some key';
 
         $this->cipher->expects($this->once())
             ->method('decrypt')
             ->with($this->identicalTo($encryptedValue))
             ->will($this->throwException(new Exception()));
 
-        $this->decrypter->decryptValue($encryptedValue);
+        $this->decrypter->decryptValue($encryptedValue, $decryptionKey);
     }
 
-    public function testDecryptValueSuccessWithKey()
+    public function testDecryptValueSuccess()
     {
         $encryptedValue = 'some encrypted value';
         $decryptionKey = 'some key';
         $prepDecryptedValue = 'decrypted value';
 
-        $this->setUpBlockCipherSetKey($decryptionKey);
+        $this->cipher->expects($this->once())
+            ->method('setKey')
+            ->with($this->identicalTo($decryptionKey));
 
-        $this->setUpBlockCipherDecrypt($encryptedValue, $prepDecryptedValue);
+        $this->cipher->expects($this->once())
+            ->method('decrypt')
+            ->with($this->identicalTo($encryptedValue))
+            ->will($this->returnValue($prepDecryptedValue));
 
         $decryptedValue = $this->decrypter->decryptValue($encryptedValue, $decryptionKey);
-
-        $this->assertSame($prepDecryptedValue, $decryptedValue);
-    }
-
-    public function testDecrpytValueSuccessWithoutKey()
-    {
-        $encryptedValue = 'some encrypted value';
-        $prepDecryptedValue = 'decrypted value';
-
-        $this->setUpBlockCipherSetKey(null);
-
-        $this->setUpBlockCipherDecrypt($encryptedValue, $prepDecryptedValue);
-
-        $decryptedValue = $this->decrypter->decryptValue($encryptedValue);
 
         $this->assertSame($prepDecryptedValue, $decryptedValue);
     }
@@ -98,31 +90,5 @@ class ZendCryptBlockCipherDecrypterTest extends \PHPUnit_Framework_TestCase
     private function createBlockCipherMock()
     {
         return $this->getMockBuilder(BlockCipher::class)->disableOriginalConstructor()->getMock();
-    }
-
-    /**
-     * Set up BlockCipher: decrypt.
-     *
-     * @param string $encryptedValue
-     * @param string $decryptedValue
-     */
-    private function setUpBlockCipherDecrypt($encryptedValue, $decryptedValue)
-    {
-        $this->cipher->expects($this->once())
-            ->method('decrypt')
-            ->with($this->identicalTo($encryptedValue))
-            ->will($this->returnValue($decryptedValue));
-    }
-
-    /**
-     * Set up BlockCipher: setKey.
-     *
-     * @param string|null $decryptionKey
-     */
-    private function setUpBlockCipherSetKey($decryptionKey)
-    {
-        $this->cipher->expects($this->once())
-            ->method('setKey')
-            ->with($this->identicalTo($decryptionKey));
     }
 }
