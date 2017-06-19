@@ -332,108 +332,126 @@
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.3des" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.aes"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.aes" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.blowfish"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.blowfish" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.cast.128"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.cast.128" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.cast.256"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.cast.256" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.des"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.des" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.rijndael.192"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.rijndael.192" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.rijndael.256"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.rijndael.256" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.saferplus"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.saferplus" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.serpent"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.serpent" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.mcrypt.twofish"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.mcrypt.twofish" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.aes"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.openssl.aes" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.blowfish"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.openssl.blowfish" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.camellia"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.openssl.camellia" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.cast5"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.openssl.cast5" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.des"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.openssl.des" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.rsa"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptRsaEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.rsa.factory_proxy" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
 
         <service id="pcdx_parameter_encryption_zend_crypt.encryption.encrypter.zend_crypt.openssl.seed"
             class="Picodexter\ParameterEncryptionZendCryptBundle\Encryption\Encrypter\ZendCryptBlockCipherEncrypter"
             public="false">
             <argument type="service" id="pcdx_parameter_encryption_zend_crypt.encryption.algorithm.zend_crypt.block_cipher.openssl.seed" />
+            <tag name="pcdx_parameter_encryption.crypto.key_must_not_be_empty" />
         </service>
     </services>
 </container>
