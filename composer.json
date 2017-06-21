@@ -2,7 +2,7 @@
     "name": "picodexter/parameter-encryption-zend-crypt-bundle",
     "type": "symfony-bundle",
     "description": "Symfony PcdxParameterEncryptionBundle add-on for zendframework/zend-crypt",
-    "keywords": ["config", "parameter", "encryption", "zendframework/zend-crypt"],
+    "keywords": ["config", "parameter", "encryption", "zendframework", "zend-crypt"],
     "homepage": "https://picodexter.io/",
     "license": "MIT",
     "authors": [
