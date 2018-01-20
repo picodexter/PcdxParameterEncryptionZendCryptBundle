@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+*   Added support for Symfony version 4.x
 *   Added support for zendframework/zend-crypt version 3.x
 
 ### Changed
